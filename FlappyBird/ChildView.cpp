@@ -134,80 +134,40 @@ bool CChildView::Crash()
 
 void CChildView::ShowScore(CDC* cDC)
 {
-	if (m_score == 0)
-		m_f0.Draw(*cDC, m_client.Width() / 2 - 12, 50, 24, 44);
-	else if (m_score == 1)
-		m_f1.Draw(*cDC, m_client.Width() / 2 - 12, 50, 24, 44);
-	else if (m_score == 2)
-		m_f2.Draw(*cDC, m_client.Width() / 2 - 12, 50, 24, 44);
-	else if (m_score == 3)
-		m_f3.Draw(*cDC, m_client.Width() / 2 - 12, 50, 24, 44);
-	else if (m_score == 4)
-		m_f4.Draw(*cDC, m_client.Width() / 2 - 12, 50, 24, 44);
-	else if (m_score == 5)
-		m_f5.Draw(*cDC, m_client.Width() / 2 - 12, 50, 24, 44);
-	else if (m_score == 6)
-		m_f6.Draw(*cDC, m_client.Width() / 2 - 12, 50, 24, 44);
-	else if (m_score == 7)
-		m_f7.Draw(*cDC, m_client.Width() / 2 - 12, 50, 24, 44);
-	else if (m_score == 8)
-		m_f8.Draw(*cDC, m_client.Width() / 2 - 12, 50, 24, 44);
-	else if (m_score == 9)
-		m_f9.Draw(*cDC, m_client.Width() / 2 - 12, 50, 24, 44);
-	else if (m_score == 10)
-	{
-		m_f1.Draw(*cDC, m_client.Width() / 2 - 24, 50, 24, 44);
-		m_f0.Draw(*cDC, m_client.Width() / 2, 50, 24, 44);
+	bool if_ten = false;
+	int delta = 12;
+	int score = m_score;
+	int i = 1;
+	if (m_score >= 10) {
+		if_ten = true;
+		delta = 24;
+		score = m_score / 10;
+		i = 0;
 	}
-	else if (m_score == 11)
-	{
-		m_f1.Draw(*cDC, m_client.Width() / 2 - 24, 50, 24, 44);
-		m_f1.Draw(*cDC, m_client.Width() / 2, 50, 24, 44);
-	}
-	else if (m_score == 12)
-	{
-		m_f1.Draw(*cDC, m_client.Width() / 2 - 24, 50, 24, 44);
-		m_f2.Draw(*cDC, m_client.Width() / 2, 50, 24, 44);
-	}
-	else if (m_score == 13)
-	{
-		m_f1.Draw(*cDC, m_client.Width() / 2 - 24, 50, 24, 44);
-		m_f3.Draw(*cDC, m_client.Width() / 2, 50, 24, 44);
-	}
-	else if (m_score == 14)
-	{
-		m_f1.Draw(*cDC, m_client.Width() / 2 - 24, 50, 24, 44);
-		m_f4.Draw(*cDC, m_client.Width() / 2, 50, 24, 44);
-	}
-	else if (m_score == 15)
-	{
-		m_f1.Draw(*cDC, m_client.Width() / 2 - 24, 50, 24, 44);
-		m_f5.Draw(*cDC, m_client.Width() / 2, 50, 24, 44);
-	}
-	else if (m_score == 16)
-	{
-		m_f1.Draw(*cDC, m_client.Width() / 2 - 24, 50, 24, 44);
-		m_f6.Draw(*cDC, m_client.Width() / 2, 50, 24, 44);
-	}
-	else if (m_score == 17)
-	{
-		m_f1.Draw(*cDC, m_client.Width() / 2 - 24, 50, 24, 44);
-		m_f7.Draw(*cDC, m_client.Width() / 2, 50, 24, 44);
-	}
-	else if (m_score == 18)
-	{
-		m_f1.Draw(*cDC, m_client.Width() / 2 - 24, 50, 24, 44);
-		m_f8.Draw(*cDC, m_client.Width() / 2, 50, 24, 44);
-	}
-	else if (m_score == 19)
-	{
-		m_f1.Draw(*cDC, m_client.Width() / 2 - 24, 50, 24, 44);
-		m_f9.Draw(*cDC, m_client.Width() / 2, 50, 24, 44);
-	}
-	else if (m_score == 20)
-	{
-		m_f2.Draw(*cDC, m_client.Width() / 2 - 24, 50, 24, 44);
-		m_f0.Draw(*cDC, m_client.Width() / 2, 50, 24, 44);
+	while (i < 2) {
+		if (score == 0)
+			m_f0.Draw(*cDC, m_client.Width() / 2 - delta, 50, 24, 44);
+		else if (score == 1)
+			m_f1.Draw(*cDC, m_client.Width() / 2 - delta, 50, 24, 44);
+		else if (score == 2)
+			m_f2.Draw(*cDC, m_client.Width() / 2 - delta, 50, 24, 44);
+		else if (score == 3)
+			m_f3.Draw(*cDC, m_client.Width() / 2 - delta, 50, 24, 44);
+		else if (score == 4)
+			m_f4.Draw(*cDC, m_client.Width() / 2 - delta, 50, 24, 44);
+		else if (score == 5)
+			m_f5.Draw(*cDC, m_client.Width() / 2 - delta, 50, 24, 44);
+		else if (score == 6)
+			m_f6.Draw(*cDC, m_client.Width() / 2 - delta, 50, 24, 44);
+		else if (score == 7)
+			m_f7.Draw(*cDC, m_client.Width() / 2 - delta, 50, 24, 44);
+		else if (score == 8)
+			m_f8.Draw(*cDC, m_client.Width() / 2 - delta, 50, 24, 44);
+		else if (score == 9)
+			m_f9.Draw(*cDC, m_client.Width() / 2 - delta, 50, 24, 44);
+		i+=1;
+		score = m_score % 10;
+		delta = 0;
 	}
 }
 
